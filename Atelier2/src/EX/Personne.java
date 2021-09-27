@@ -1,16 +1,15 @@
-package EX1;
+package EX;
 
-import java.util.*;
-import EX1.Adresse;
+import java.time.LocalDate;
 
 
 public class Personne{
     private static final Adresse ADRESSE_INCONNUE = null;
-    protected String nom;
-    protected String prenom;
-    protected final GregorianCalendar dateNaissance;
-    protected Adresse adresse=ADRESSE_INCONNUE;
-    private static int nbPersonne=0;
+    private static int nbPersonnes=0;
+    private String nom;
+    private String prenom;
+    private final LocalDate dateNaissance;
+    private Adresse adresse=ADRESSE_INCONNUE;
 	
 	/**
 	 * Constructeur de Personne
@@ -19,12 +18,12 @@ public class Personne{
 	 * @param laDate la date de naissance de la personne
 	 * @param lAdresse l'adresse de la personne
 	 */
-	public Personne(String leNom,String lePrenom, GregorianCalendar laDate, Adresse lAdresse){
+	public Personne(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse){
 		nom = leNom.toUpperCase();
 		prenom=lePrenom;
 		dateNaissance=laDate;
 		adresse=lAdresse;
-		nbPersonne++;
+		nbPersonnes++;
 	}
 	
 	/** 
@@ -40,7 +39,7 @@ public class Personne{
 	 * @param ville la ville ou la personne habite
 	 */
 	public Personne(String leNom,String lePrenom, int j, int m, int a, int numero, String rue, String code_postal, String ville){
-		this(leNom, lePrenom, new GregorianCalendar(a,m,j),new Adresse(numero,rue,code_postal,ville));
+		this(leNom, lePrenom, LocalDate.of(a,m,j),new Adresse(numero,rue,code_postal,ville));
 	}
 
 	/**
@@ -61,7 +60,7 @@ public class Personne{
 	 * Accesseur
 	 * @return retourne la date de naissance	 
 	 */
-	public GregorianCalendar getDateNaissance() {
+	public LocalDate getDateNaissance() {
 		return dateNaissance;
 	}
 	/**
@@ -75,6 +74,10 @@ public class Personne{
 	 * Modificateur
 	 * @param retourne l'adresse	 
 	 */
+	public int getNbPersonnes() {
+		return nbPersonnes;
+	}
+	
 	public void setAdresse(Adresse a) {
 		adresse=a;
 	}
@@ -82,29 +85,40 @@ public class Personne{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	
+	/**
+	 * @param p1
+	 * @param p2
+	 * @return true si p2 plus vieux que p1
+	 */
+	public static boolean plusAgee(Personne p1, Personne p2) {
+		return p1.getDateNaissance().isAfter(p2.getDateNaissance());
+	}
+	
+	/**
+	 * @param personne
+	 * @return true si this plus age que personne
+	 */
+	public boolean plusAgeeQue(Personne personne) {
+		return personne.getDateNaissance().isAfter(this.dateNaissance);
+	}
+		
 	public String toString(){
 		String result="\nNom : "+nom+"\n"
 		+"Prénom : "+prenom+"\n"+
-		"Né(e) le : "+dateNaissance.get(Calendar.DAY_OF_MONTH)+
-		"-"+dateNaissance.get(Calendar.MONTH)+
-		"-"+dateNaissance.get(Calendar.YEAR)+"\n"+
+		"Né(e) le : "+dateNaissance+"\n"+
 		"Adresse : "+
 		adresse.toString();
 		return result;
 	}
 	
-	public boolean plusAgee(Personne personne) {
-		return personne.dateNaissance.after(this.dateNaissance);
+	public boolean equals(Object obj) {
+		boolean res=false;
+		if(obj instanceof Personne) {
+			Personne objPersonne=(Personne)obj;
+			res=(objPersonne.getNom()==this.nom && objPersonne.getPrenom()==this.prenom);
+		}
+		return res;
 	}
-	public static boolean plusAgee(Personne personne1, Personne personne2) {
-		return personne2.getDateNaissance().after(personne1.getDateNaissance());
-	}
-	public boolean equals(Object objet) {
-		return objet instanceof Personne && this.nom==((Personne)objet).nom && this.prenom==((Personne)objet).prenom && this.dateNaissance.compareTo(((Personne)objet).dateNaissance)==0;
-	}
-	
 }
 
-    
-   
-   

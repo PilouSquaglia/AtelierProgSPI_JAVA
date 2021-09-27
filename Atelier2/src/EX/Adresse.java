@@ -1,4 +1,4 @@
-package EX1;
+package EX;
 
 /*
  * University of Corsica
@@ -6,7 +6,7 @@ package EX1;
  */
 
 /**
- * Classe Adrese servant à  modéliser les informations contenues dans une adresse
+ * Classe Adrese servant Ã  modÃ©liser les informations contenues dans une adresse
  * @author nivet_m
  *
  */
@@ -21,15 +21,15 @@ public class Adresse {
 	private final String ville;
 
 	/**
-	 * Construction d'une Adresse complète
-	 * Certaines vérifications sont faites pour s'assurer de la
-	 * validité de l'adresse en particulier on vérifie le n°
+	 * Construction d'une Adresse complÃ¨te
+	 * Certaines vÃ©rifications sont faÃ®tes pour s'assurer de la
+	 * validitÃ© de l'adresse en particulier on vÃ©rifie le nÂ°
 	 * et le code postal.
 	 * <p>
-	 * Une adresse ne peut être modifiée une fois créée et correctement
-	 * renseignée.
-	 * @param numero le numéro de la rue s'il existe, sinon Adresse.INUTILE
-	 * @param rue la rue si elle est nécessaire, sinon Adresse.INUTILE_RUE
+	 * Une adresse ne peut Ãªtre modifiÃ©e une fois crÃ©Ã©e et correctement
+	 * renseignÃ©e.
+	 * @param numero le numÃ©ro de la rue s'il existe, sinon Adresse.INUTILE
+	 * @param rue la rue si elle est nÃ©cessaire, sinon Adresse.INUTILE_RUE
 	 * @param code_postal le code postal de la forme NNNNN ou N est un chiffre>0
 	 * @param ville la ville
 	 */
@@ -52,7 +52,7 @@ public class Adresse {
 	/**
 	 * Construction d'une Adresse avec seule mention de la rue de la ville et du
 	 * code postal
-	 * @param rue la rue si elle est nécessaire, sinon Adresse.INUTILE_RUE
+	 * @param rue la rue si elle est nÃ©cessaire, sinon Adresse.INUTILE_RUE
 	 * @param code_postal le code postal de la forme NNNNN ou N est un chiffre>0
 	 * @param ville la ville
 	 */
@@ -74,26 +74,26 @@ public class Adresse {
 			code_postal=c_p;
 		else{
 			if (!code_postal.equals(INCONNU_CHAINE))
-				System.err.println("Le code postal a déjà  été attribué, vous ne pouvez plus le modifier...");
+				System.err.println("Le code postal a dÃ©jÃ  Ã©tÃ© attribuÃ©, vous ne pouvez plus le modifier...");
 			else {
-				System.err.println("Code postal mal écrit, il doit être de la forme NNNNN avec N un chiffre différent de 0");
-				System.err.println("Vous pouvez réessayer une nouvelle affectation...");
+				System.err.println("Code postal mal Ã©crit, il doit Ãªtre de la forme NNNNN avec N un chiffre diffÃ©rent de 0");
+				System.err.println("Vous pouvez rÃ©essayer une nouvelle affectation...");
 			}
 		}
 	}
 
 	/**
-	 * @return retourne le numéro de la rue.
+	 * @return retourne le numÃ©ro de la rue.
 	 */
 	public int getNumero() {
 		return numero;
 	}
 	/**
-	 * @param numero le numéro pour attribution, il doit être positif
+	 * @param numero le numÃ©ro pour attribution, il doit Ãªtre positif
 	 */
 	public final void  setNumero(int n) {
 		if (((numero==AUCUN_NUMERO)||(numero==INUTILE_NUMERO))&&(n>0)) numero = n;
-		else System.err.println("Numero incorrect, il doit être positif...");
+		else System.err.println("Numero incorrect, il doit Ãªtre positif...");
 	}
 	/**
 	 * @return retourne la rue.
@@ -114,7 +114,7 @@ public class Adresse {
 		return ville;
 	}
 
-	/** Redéfintion de toString
+	/** RedÃ©fintion de toString
 	 * @see java.lang.Object#toString()
 	 */
         @Override
