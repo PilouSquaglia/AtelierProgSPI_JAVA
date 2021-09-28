@@ -116,20 +116,19 @@ public class Personne{
 		
 	public String toString(){
 		String result="\nNom : "+nom+"\n"
-		+"Pr�nom : "+prenom+"\n"+
-		"N�(e) le : "+dateNaissance+"\n"+
+		+"Prénom : "+prenom+"\n"+
+		"Né(e) le : "+dateNaissance+"\n"+
 		"Adresse : "+
 		adresse.toString();
 		return result;
 	}
 	
 	public boolean equals(Object obj) {
-		boolean res=false;
-		if(obj instanceof Personne) {
-			Personne objPersonne=(Personne)obj;
-			res=(objPersonne.getNom().equals(this.nom) && objPersonne.getPrenom().equals(this.prenom));
-		}
-		return res;
+
+		return obj != null &&
+		obj instanceof Personne && 
+		((Personne)obj).getNom().equals(this.nom) && ((Personne)obj).getPrenom().equals(this.prenom) 
+		&& this.dateNaissance.equals(((Personne)obj).getDateNaissance());
 	}
 }
 

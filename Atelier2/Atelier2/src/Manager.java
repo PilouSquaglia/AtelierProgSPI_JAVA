@@ -4,15 +4,7 @@ import java.time.LocalDate;
 public class Manager extends Employe {
 	
 	private Secretaire secretaire;
-	
-	/**
-	 * @param leNom
-	 * @param lePrenom
-	 * @param laDate
-	 * @param lAdresse
-	 * @param salaire
-	 * @param dateEmbauche
-	 */
+
 	protected Manager(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse, double salaire, LocalDate dateEmbauche) {
 		super(leNom, lePrenom, laDate, lAdresse, salaire, dateEmbauche);
 		
@@ -30,7 +22,7 @@ public class Manager extends Employe {
 	public static Manager createManager(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse, 
 			double salaire, LocalDate dateEmbauche){
 		int age=dateEmbauche.getYear()-laDate.getYear();
-		if(age>16 && age<65) {
+		if(age>16 && age<65 && salaire>0) {
 			Manager manager=new Manager(leNom, lePrenom, laDate, lAdresse, salaire, dateEmbauche);
 			return manager;
 		}
@@ -55,9 +47,7 @@ public class Manager extends Employe {
 		secretaire.addManager(this);
 	}
 	
-	/**
-	 *
-	 */
+	@Override
 	public void augmenterLeSalaire(double pourcentage) {
 		if(pourcentage>0) {		
 			salaire+=salaire*((pourcentage+calculAnnuite()*0.5)/100);

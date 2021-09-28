@@ -9,15 +9,6 @@ public class Secretaire extends Employe {
 	
 	private ArrayList<Manager> managers;
 	
-	/**
-	 * @param leNom
-	 * @param lePrenom
-	 * @param laDate
-	 * @param lAdresse
-	 * @param salaire
-	 * @param dateEmbauche
-	 * @param managers
-	 */
 	protected Secretaire(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse, 
 			double salaire, LocalDate dateEmbauche, ArrayList<Manager> managers) {
 		super(leNom,lePrenom,laDate,lAdresse, salaire, dateEmbauche);

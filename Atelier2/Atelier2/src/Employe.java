@@ -3,17 +3,9 @@ import java.time.LocalDate;
 
 public class Employe extends Personne {
 	
-	public double salaire;
+	protected double salaire;
 	private LocalDate dateEmbauche;
 	
-	/**
-	 * @param leNom
-	 * @param lePrenom
-	 * @param laDate
-	 * @param lAdresse
-	 * @param salaire
-	 * @param dateEmbauche
-	 */
 	protected Employe(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse, 
 			double salaire, LocalDate dateEmbauche) {
 		super(leNom,lePrenom,laDate,lAdresse);
@@ -28,7 +20,6 @@ public class Employe extends Personne {
 	 * @param lAdresse
 	 * @param salaire
 	 * @param dateEmbauche
-	 * @return null si age inavlide, new employe sinon
 	 */
 	public static Employe createEmploye(String leNom,String lePrenom, LocalDate laDate, Adresse lAdresse, 
 			double salaire, LocalDate dateEmbauche){
@@ -42,25 +33,24 @@ public class Employe extends Personne {
 		}
 		
 	}
-	
 	/**
 	 * @param pourcentage
 	 */
 	public void augmenterLeSalaire(double pourcentage) {
 		if(pourcentage>0) {		
-			salaire+=salaire*(pourcentage/100);
+			salaire*=1+(pourcentage/100);
 		}
 		else {
-			System.out.println("le pourcentage doit etre positif");
+			System.out.println("Le pourcentage doit etre positif");
 		}
 	}
 	
 	/**
-	 * @return simple difference des ann�es
+	 * @return difference des années
 	 */
 	public int calculAnnuite() {
 		LocalDate now=LocalDate.now();
-		return now.getYear()-dateEmbauche.getYear();
+		return now.getYear()-dateEmbauche.getYear()+1;
 	}
 
 }
