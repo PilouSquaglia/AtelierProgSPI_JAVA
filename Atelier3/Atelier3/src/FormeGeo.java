@@ -7,14 +7,8 @@ abstract public class FormeGeo {
     public FormeGeo(String nom){
         nbFormes++;
         id=nom+"_"+nbFormes;
-
    }
 
-   @Override
-   public String toString() {
-
-       return "Forme : " + id;
-   }
    public abstract double CalculSurface();
 
    public boolean isBigger(FormeGeo forme){
@@ -24,6 +18,10 @@ abstract public class FormeGeo {
        return surface;
    }
 
+    @Override
+   public String toString() {
+       return "Forme : " + id;
+   }
    @Override
    public boolean equals(Object obj) {
        return obj!=null && obj instanceof FormeGeo && ((FormeGeo) obj).getSurface() == this.surface;

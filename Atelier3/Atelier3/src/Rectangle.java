@@ -14,7 +14,7 @@ public class Rectangle extends Forme2D  {
         return longueur*largeur;
     }
     @Override
-    public double CalculPerimetre() {
+    public double perimetre() {
         return 2*longueur+2*largeur;
     }
 
@@ -22,6 +22,6 @@ public class Rectangle extends Forme2D  {
     public String toString() {
         return super.toString()+"\nCet objet est un Rectangle avec une longueur de "+longueur+
         " mm et une largeur de "+largeur+" mm\n L'aire est de "+
-        CalculSurface()+" mm²\n Le perimètre est de "+CalculPerimetre()+" mm";
+        CalculSurface()+" mm²\n Le perimètre est de "+perimetre()+" mm";
     }
 }

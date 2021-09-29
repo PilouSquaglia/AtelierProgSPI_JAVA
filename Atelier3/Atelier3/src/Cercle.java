@@ -16,13 +16,13 @@ public class Cercle extends Forme2D  {
         return PI*(Math.pow(rayon, 2));
     }
     @Override
-    public double CalculPerimetre() {
+    public double perimetre() {
         return 2*PI*rayon;
     }
 
     @Override
     public String toString() {
         return super.toString()+"\nCet objet est un Cercle avec un rayon de "+rayon+
-        " mm\n L'aire est de "+CalculSurface()+" mm²\n Le perimètre est de "+CalculPerimetre()+" mm";
+        " mm\n L'aire est de "+CalculSurface()+" mm²\n Le perimètre est de "+perimetre()+" mm";
     }
 }

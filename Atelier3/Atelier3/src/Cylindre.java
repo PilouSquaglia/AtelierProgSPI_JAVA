@@ -12,7 +12,7 @@ public class Cylindre extends Forme3D {
     
     @Override
     public double CalculSurface() {
-        return 2*cercle.CalculSurface()+hauteur*cercle.CalculPerimetre();
+        return 2*cercle.CalculSurface()+hauteur*cercle.perimetre();
     }
     @Override
     public double volume() {

@@ -15,7 +15,7 @@ public class Ellipse extends Forme2D {
         return PI*demi_grand_axe*demi_petit_axe;
     }
     @Override
-    public double CalculPerimetre() {
+    public double perimetre() {
         return 2*PI*(Math.sqrt(((Math.pow(demi_grand_axe, 2))+(Math.pow(demi_petit_axe, 2)))/2));
     }
 
@@ -23,6 +23,6 @@ public class Ellipse extends Forme2D {
     public String toString() {
         return super.toString()+"\nCet objet est une Ellipse avec un demi-grand axe de "+demi_grand_axe+
         " mm et un demi-petit axe de "+demi_petit_axe+" mm\n L'aire est de "+
-        CalculSurface()+"mm² \n Le perimètre est de "+CalculPerimetre()+" mm ";
+        CalculSurface()+"mm² \n Le perimètre est de "+perimetre()+" mm ";
     }
 }
