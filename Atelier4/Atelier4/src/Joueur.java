@@ -30,7 +30,6 @@ public class Joueur {
     public boolean peutJouer(){
         return listePersos.size()>=1;
     }
-    
     public int getNbPoints() {
         return nbPoints;
     }
@@ -44,5 +43,8 @@ public class Joueur {
             res = code+" "+nom+" ("+nbPoints+" points) avec "+listePersos.size()+" personnages";
         }
         return res;
+    }
+    public ArrayList<Personnage> getListePersos() {
+        return listePersos;
     }
 }
